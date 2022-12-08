@@ -288,6 +288,7 @@ $(document).ready(function () {
         var name_attr = [];
         var values = [];
         var tz_process = "";
+
         if ($(this).closest("section").attr('id') !== undefined)
         {
             var section_id = $(this).closest("section").attr('id');
@@ -298,9 +299,10 @@ $(document).ready(function () {
         $('#' + section_id).find('form').find('button').after(submit_loader);
         $('#' + section_id).find('form input, form select,form textarea').each(
                 function (index) {
-
+                    console.log('hfghfh');
                     if ($(this).is('[data-email="required"]')) {
                         var required_val = $(this).val();
+                      
                         if (required_val != '') {
                             name_attr.push($(this).attr('name'));
                             values.push($(this).val());
@@ -333,6 +335,7 @@ $(document).ready(function () {
                 $('#recaptcha-error').hide();
                 tz_process = true;
             }
+            console.log('hfghfh');
         }
         if (tz_process)
         {
@@ -429,6 +432,15 @@ $(document).ready(function () {
             tz_process = false;
         } else {
             $('#' + section_id).find('[name=name]').removeClass('tz_input_error');
+            tz_process = true;
+        }
+        if (comment == "")
+        {
+            $('#' + section_id).find('[name=comment]').addClass('tz_input_error');
+            $('#loading').remove();
+            tz_process = false;
+        } else {
+            $('#' + section_id).find('[name=comment]').removeClass('tz_input_error');
             tz_process = true;
         }
         if (email == "")

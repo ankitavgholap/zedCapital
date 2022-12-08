@@ -1412,6 +1412,6 @@ h1.main-title {
 .team-img img{
    transition: all 0.5s;
 }
-.team-img:hover img{
+/* .team-img:hover img{
     transform: scale(1.1);
-}
+} */
